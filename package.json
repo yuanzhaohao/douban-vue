@@ -1,0 +1,25 @@
+{
+  "name": "douban-vue",
+  "description": "A new project",
+  "version": "0.0.1",
+  "author": "yuanzhaohao",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "seven dev -p 7777",
+    "dev": "seven dev -p 7777",
+    "build": "seven build"
+  },
+  "dependencies": {
+    "data-lazyload": "0.0.4",
+    "reqwest": "^2.0.5",
+    "vue": "^2.5.3",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1"
+  }
+}

@@ -1,0 +1,40 @@
+.clearfix() {
+  &:before{
+    content: '';
+    display: block;
+  }
+  &:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.item-img-bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #edeef1;
+}
+
+.text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.line-overflow(@line: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+}
+
+.boxCenter {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-box-align: center;
+  align-items: center;
+}
