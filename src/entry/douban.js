@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
 import VueRouter from 'vue-router';
 import routes from '../router/';
+import store from '../store/';
 
 window.addEventListener('DOMContentLoaded', function() {
   const router = new VueRouter({
@@ -10,6 +10,7 @@ window.addEventListener('DOMContentLoaded', function() {
       console.log(savedPosition);
     }
   });
+
   Vue.use(VueRouter);
-  new Vue({ router }).$mount('#app')
+  new Vue({ router, store }).$mount('#app')
 });
