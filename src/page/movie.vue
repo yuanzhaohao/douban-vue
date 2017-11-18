@@ -1,40 +1,26 @@
 <style lang="less">
 @import '../less/mixins.less';
-@import '../less/reset.less';
-@import '../less/common.less';
+
+.page-movie {
+  padding-top: 92px;/*px*/
+}
 </style>
 
 <template>
-  <MovieHeader />
+  <div class="page-movie">
+    <MovieHeader />
+    <MovieHot />
+  </div>
 </template>
 
 <script>
-import reqwest from 'reqwest';
 import MovieHeader from '../components/movie/header';
+import MovieHot from '../components/movie/hot';
 
 export default {
   components: {
     MovieHeader,
-  },
-  mounted() {
-    this.loadData();
-  },
-
-  methods: {
-    loadData() {
-      reqwest({
-        url: 'https://api.douban.com/v2/movie/in_theaters',
-        data: {
-          city: '杭州',
-          start: 0,
-          count: 9
-        },
-        type: 'jsonp',
-        success: function(resp) {
-          console.log(resp);
-        }
-      });
-    }
+    MovieHot,
   }
 }
 </script>

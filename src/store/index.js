@@ -6,10 +6,10 @@ import actions from './actions';
 Vue.use(Vuex);
 
 const state = {
-  moduleMovieList: null
+  movieHotList: null
 };
 
-export default new Vuex.store({
+export default new Vuex.Store({
   state,
   actions,
   mutations,
