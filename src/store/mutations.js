@@ -9,7 +9,6 @@ export default {
    * 获取热门电影
    */
 	[GET_MOVIE_HOT](state, listData) {
-    console.log(listData);
 		state.movieHotList = listData;
 	},
   /**
