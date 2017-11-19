@@ -33,7 +33,7 @@
 <template>
   <div class="module-title">
     <p class="module-text">{{title}}</p>
-    <div class="module-btn" v-on:click="onBtnClick(url)">更多</div>
+    <div class="module-btn" v-if="url" v-on:click="onBtnClick(url)">更多</div>
   </div>
 </template>
 

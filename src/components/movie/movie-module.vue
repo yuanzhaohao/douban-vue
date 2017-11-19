@@ -15,8 +15,11 @@
 <template>
   <div class="movie-module">
     <ModuleTitle :title="title" />
-    <div v-if="listData && listData.length" class="movie-list">
-      <MovieItem v-for="(itemData, index) in listData" :itemData="itemData" :key="index" />
+    <div class="movie-list">
+      <template v-if="listData && listData.length">
+        <MovieItem v-for="(itemData, index) in listData" :itemData="itemData" :key="index" />
+      </template>
+      <Loading v-else />
     </div>
   </div>
 </template>
@@ -26,13 +29,15 @@ import Lazyload from 'data-lazyload';
 import { mapState, mapActions } from 'vuex';
 
 import ModuleTitle from '../common/module-title';
+import Loading from '../common/loading';
 import MovieItem from './movie-item';
 
 export default {
   props: ['type', 'title', 'dataKey'],
   components: {
     ModuleTitle,
-    MovieItem
+    MovieItem,
+    Loading,
   },
 
   data() {

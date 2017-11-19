@@ -15,17 +15,20 @@
       :type="itemData.type"
       :dataKey="itemData.dataKey"
       :key="index" />
+    <MovieType />
   </div>
 </template>
 
 <script>
 import MovieHeader from '../components/movie/header';
 import MovieModule from '../components/movie/movie-module';
+import MovieType from '../components/movie/movie-type';
 
 export default {
   components: {
     MovieHeader,
     MovieModule,
+    MovieType,
   },
 
   data() {
