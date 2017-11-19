@@ -5,6 +5,7 @@
   var tid = 0;
   var dpr = 1;
   var scale = 0;
+  var androidMinVer = [4, 3]; //低于或等于Android4.3版本的，则使用rem方案
 
   if (!metaEl) {
     metaEl = doc.createElement('meta');
@@ -26,7 +27,7 @@
     var devicePixelRatio = win.devicePixelRatio;
     var detector = new Detector();
     var isUseRem;
-    if (detector.iOS || (detector.Android && detector.checkAndVer([4, 3]))) {
+    if (detector.iOS || (detector.Android && detector.checkAndVer(androidMinVer))) {
       if (devicePixelRatio >= 3) {
         dpr = 3;
       } else if (devicePixelRatio >= 2){
@@ -50,13 +51,9 @@
       doc.write(wrap.innerHTML);
     }
     docEl.setAttribute('data-dpr', dpr);
-    if (detector.Android && !detector.checkAndVer([4, 3])) {// 低于Android4.4版本的，则使用rem方案
+    if (detector.Android && !detector.checkAndVer(androidMinVer)) {
       var width = docEl.getBoundingClientRect().width;
-      var rem;
-      if (width / dpr > 540) {
-        width = 540 * dpr;
-      }
-      rem = width / 10;
+      var rem = width / 10;
       docEl.setAttribute('data-rem', 'true');
       docEl.style.fontSize = rem + 'px';
     } else {
@@ -75,11 +72,10 @@
   Detector.prototype.checkAndVer = function(version) {
     if (this.Android) {
       var localVersion = this.androidMatch[1].split('.');
-      var len = version.length > localVersion.length ? version.length : localVersion.length;
+      var len = Math.min(version.length, localVersion.length);
       for (var i = 0; i < len; i++) {
-        if (localVersion[i] > version[i]) {
-          return true;
-        }
+        if (parseInt(localVersion[i]) == parseInt(version[i])) continue;
+        return parseInt(localVersion[i]) > parseInt(version[i]) ? true :false;
       }
       return false;
     }

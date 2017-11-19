@@ -14,14 +14,30 @@
 
 .type-item {
   float: left;
+  position: relative;
   width: 50%;
   height: 80px;
   padding-left: 30px;
   border-bottom: 1px solid #eee;/*no*/
-  border-right: 1px solid #eee;/*no*/
   font-size: 28px;/*px*/
   line-height: 80px;
   box-sizing: border-box;
+
+  &:nth-of-type(n+1) {
+    border-right: 1px solid #eee;/*no*/
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    right: 30px;
+    top: 32px;
+    width: 15px;
+    height: 15px;
+    border-right: 1px solid #ccc;/*no*/
+    border-bottom: 1px solid #ccc;
+    transform: rotate(-45deg);
+  }
 }
 </style>
 
