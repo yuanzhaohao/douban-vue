@@ -1,27 +1,27 @@
 import {
-  GET_MOVIE_HOT,
-  GET_MOVIE_NEW,
-  GET_MOVIE_FREE,
+  MOVIE_HOT,
+  MOVIE_NEW,
+  MOVIE_FREE,
 } from './types.js';
 
 export default {
 	/**
-   * 获取热门电影
+   * 获取电影首页热门电影
    */
-	[GET_MOVIE_HOT](state, listData) {
-		state.movieHotList = listData;
+	[MOVIE_HOT](state, data) {
+		state.movie.hotData = data;
 	},
   /**
-   * 获取新片速递
+   * 获取电影首页新片速递
    */
-	[GET_MOVIE_NEW](state, listData) {
-		state.movieNewList = listData;
+	[MOVIE_NEW](state, data) {
+		state.movie.newData = data;
 	},
 
   /**
-   * 获取免费在线电影
+   * 获取电影首页免费在线电影
    */
-	[GET_MOVIE_FREE](state, listData) {
-		state.movieFreeList = listData;
+	[MOVIE_FREE](state, data) {
+		state.movie.freeData = data;
 	},
 }

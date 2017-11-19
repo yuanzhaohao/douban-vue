@@ -6,7 +6,7 @@ import actions from './actions';
 Vue.use(Vuex);
 
 const state = {
-  movieHotList: null
+  movie: {}
 };
 
 export default new Vuex.Store({

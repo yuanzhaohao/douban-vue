@@ -41,23 +41,29 @@ export default {
   mounted() {
     const lazyInstance = Lazyload.instance();
     lazyInstance.addCallback(this.$el, async () => {
-      await this.getMovieHotList({
+      await this.getMovieHotData({
         start: 0,
         count: 6
       });
-      this.listData = this.movieHotList.subjects;
-      console.log(this.listData);
+      const data = this.movie.hotData;
+      console.log(data);
+      if (data && data.subject_collection_items && data.subject_collection_items.length) {
+        this.listData = data.subject_collection_items;
+        setTimeout(() => {
+          lazyInstance.addElements(this.$el);
+        }, 0);
+      }
     });
   },
 
   computed: {
     ...mapState([
-      'movieHotList'
+      'movie'
     ]),
   },
   methods: {
     ...mapActions([
-      'getMovieHotList'
+      'getMovieHotData'
     ]),
   },
 }
