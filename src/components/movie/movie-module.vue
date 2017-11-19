@@ -1,18 +1,20 @@
 <style lang="less">
 @import '../../less/mixins.less';
 
-.movie-hot {
+.movie-module {
   width: 100%;
 }
 
 .movie-list {
+  width: 100%;
+  height: 880px;
   .clearfix;
 }
 </style>
 
 <template>
-  <div class="movie-hot">
-    <ModuleTitle />
+  <div class="movie-module">
+    <ModuleTitle :title="title" />
     <div v-if="listData && listData.length" class="movie-list">
       <MovieItem v-for="(itemData, index) in listData" :itemData="itemData" :key="index" />
     </div>
@@ -27,6 +29,7 @@ import ModuleTitle from '../common/module-title';
 import MovieItem from './movie-item';
 
 export default {
+  props: ['type', 'title', 'dataKey'],
   components: {
     ModuleTitle,
     MovieItem
@@ -41,12 +44,14 @@ export default {
   mounted() {
     const lazyInstance = Lazyload.instance();
     lazyInstance.addCallback(this.$el, async () => {
-      await this.getMovieHotData({
+      const { dataKey, type } = this.$props;
+      let data;
+      await this.getMovieData({
         start: 0,
-        count: 6
+        count: 6,
+        type,
       });
-      const data = this.movie.hotData;
-      console.log(data);
+      data = this.movie[dataKey];
       if (data && data.subject_collection_items && data.subject_collection_items.length) {
         this.listData = data.subject_collection_items;
         setTimeout(() => {
@@ -63,7 +68,7 @@ export default {
   },
   methods: {
     ...mapActions([
-      'getMovieHotData'
+      'getMovieData'
     ]),
   },
 }

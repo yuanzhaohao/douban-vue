@@ -9,18 +9,43 @@
 <template>
   <div class="page-movie">
     <MovieHeader />
-    <MovieHot />
+    <MovieModule
+      v-for="(itemData, index) in modulesData"
+      :title="itemData.title"
+      :type="itemData.type"
+      :dataKey="itemData.dataKey"
+      :key="index" />
   </div>
 </template>
 
 <script>
 import MovieHeader from '../components/movie/header';
-import MovieHot from '../components/movie/hot';
+import MovieModule from '../components/movie/movie-module';
 
 export default {
   components: {
     MovieHeader,
-    MovieHot,
+    MovieModule,
+  },
+
+  data() {
+    return {
+      modulesData: [
+        {
+          type: 'showing',
+          title: '影院热映',
+          dataKey: 'showingData',
+        }, {
+          type: 'free',
+          title: '免费在线观影',
+          dataKey: 'freeData',
+        }, {
+          type: 'latest',
+          title: '新片速递',
+          dataKey: 'latestData',
+        }
+      ]
+    }
   }
 }
 </script>

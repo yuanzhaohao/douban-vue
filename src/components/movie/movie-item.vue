@@ -4,8 +4,8 @@
 .item {
   float: left;
   width: 210px;
+  height: 440px;
   margin-left: 30px;
-  margin-bottom: 40px;
   color: #494949;
 }
 

@@ -1,6 +1,6 @@
 import {
-  MOVIE_HOT,
-  MOVIE_NEW,
+  MOVIE_SHOWING,
+  MOVIE_LATEST,
   MOVIE_FREE,
 } from './types.js';
 
@@ -8,14 +8,14 @@ export default {
 	/**
    * 获取电影首页热门电影
    */
-	[MOVIE_HOT](state, data) {
-		state.movie.hotData = data;
+	[MOVIE_SHOWING](state, data) {
+		state.movie.showingData = data;
 	},
   /**
    * 获取电影首页新片速递
    */
-	[MOVIE_NEW](state, data) {
-		state.movie.newData = data;
+	[MOVIE_LATEST](state, data) {
+		state.movie.latestData = data;
 	},
 
   /**

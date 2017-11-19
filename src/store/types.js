@@ -1,3 +1,3 @@
-export const MOVIE_HOT = 'MOVIE_HOT';
-export const MOVIE_NEW = 'MOVIE_NEW';
+export const MOVIE_SHOWING = 'MOVIE_SHOWING';
+export const MOVIE_LATEST = 'MOVIE_LATEST';
 export const MOVIE_FREE = 'MOVIE_FREE';

@@ -32,7 +32,7 @@
 
 <template>
   <div class="module-title">
-    <p class="module-text">影院热映</p>
+    <p class="module-text">{{title}}</p>
     <div class="module-btn" v-on:click="onBtnClick(url)">更多</div>
   </div>
 </template>
@@ -40,7 +40,7 @@
 <script>
 
 export default {
-  props: ['name', 'url'],
+  props: ['title', 'url'],
   methods: {
     onBtnClick(url) {
       console.log(url);
