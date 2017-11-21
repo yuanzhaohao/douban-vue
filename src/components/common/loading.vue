@@ -7,27 +7,24 @@
   color: #666;
   text-align: center;
 
-  &:before {
-    content: '';
+  > div {
     display: inline-block;
-    width: 40px;/*px*/
-    height: 40px;/*px*/
     margin-right: 16px;
     vertical-align: middle;
-    background-image: url(../../assets/loading-icon.png);
-    background-repeat: no-repeat;
-    background-size: cover;
   }
 }
-
 </style>
 
 <template>
-  <div class="loading-box">正在加载...</div>
+  <div class="loading-box"><div><LoadingCircle /></div><span>正在加载...</span></div>
 </template>
 
 <script>
+import LoadingCircle from './loading-circle';
 export default {
+  components: {
+    LoadingCircle
+  },
   name: 'loading'
 };
 </script>
