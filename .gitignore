@@ -14,4 +14,4 @@ selenium-debug.log
 *.njsproj
 *.sln
 
-.webpack_cache
+.happypack_cache

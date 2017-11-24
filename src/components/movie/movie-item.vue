@@ -24,13 +24,19 @@
   .text-overflow;
 }
 
-.item-rating {
+.item-rating,
+.item-rating-none {
   margin-top: 6px;
   width: 100%;
   height: 36px;/*px*/
   line-height: 36px;/*px*/
   text-align: center;
   font-size: 0;
+}
+
+.item-rating-none {
+  font-size: 22px;/*px*/
+  color: #aaa;
 }
 
 .rating-stars {
@@ -82,10 +88,10 @@
 </style>
 
 <template>
-  <div class="item" v-on:click="onItemClick(itemData)">
+  <router-link class="item" :to="`/detail/${itemData.id}`">
     <div class="item-img lib-lazyload" :data-lazyload="itemData.cover.url"></div>
     <div class="item-title">{{itemData.title}}</div>
-    <div class="item-rating">
+    <div class="item-rating" v-if="itemData.rating && itemData.rating.value">
       <div class="rating-stars">
         <div class="rating-gray">
           <i class="gray-star"></i>
@@ -94,7 +100,7 @@
           <i class="gray-star"></i>
           <i class="gray-star"></i>
         </div>
-        <div class="rating-yellow"
+        <div  class="rating-yellow"
           v-bind:style="{width: `${itemData.rating.value / itemData.rating.max * 100}%`}"
         >
           <i class="yellow-star"></i>
@@ -106,19 +112,13 @@
       </div>
       <div class="rating-text">{{itemData.rating.value.toFixed(1)}}</div>
     </div>
-  </div>
+    <div v-else class="item-rating-none">暂无评分</div>
+  </router-link>
 </template>
 
 <script>
 
 export default {
-  props: ['itemData', 'index'],
-  mounted() {
-    console.log(this.itemData);
-  },
-  methods: {
-    onItemClick() {
-    }
-  }
+  props: ['itemData', 'index']
 }
 </script>
