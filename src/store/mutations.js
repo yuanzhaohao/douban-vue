@@ -2,6 +2,7 @@ import {
   MOVIE_SHOWING,
   MOVIE_LATEST,
   MOVIE_FREE,
+  DETAIL
 } from './types.js';
 
 export default {
@@ -23,5 +24,9 @@ export default {
    */
 	[MOVIE_FREE](state, data) {
 		state.movie.freeData = data;
+	},
+
+  [DETAIL](state, data) {
+		state.detail = data;
 	},
 }

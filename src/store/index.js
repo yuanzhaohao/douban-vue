@@ -6,7 +6,8 @@ import actions from './actions';
 Vue.use(Vuex);
 
 const state = {
-  movie: {}
+  movie: {},
+  detail: null
 };
 
 export default new Vuex.Store({

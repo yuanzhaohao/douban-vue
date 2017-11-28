@@ -19,3 +19,13 @@ export const getMovie = async ({ type, start, count }) => {
 
   return resp;
 };
+
+
+export const getDetail = async ({ subjectId }) => {
+  const resp = reqwest({
+    url: `//api.douban.com/v2/movie/subject/${subjectId}`,
+    type: 'jsonp'
+  });
+
+  return resp;
+};

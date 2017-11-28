@@ -10,7 +10,7 @@ export default [{
     path: '/movie',
     component: Movie,
   }, {
-      path: '/detail/:movieId',
+      path: '/detail/:subjectId',
       component: Detail,
   }, {
     path: '*',

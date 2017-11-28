@@ -1,6 +1,6 @@
 import reqwest from 'reqwest';
-import { MOVIE_SHOWING, MOVIE_FREE, MOVIE_LATEST } from './types.js';
-import { getMovie } from '../lib/model';
+import { MOVIE_SHOWING, MOVIE_FREE, MOVIE_LATEST, DETAIL } from './types.js';
+import { getMovie, getDetail } from '../lib/model';
 
 export default {
   async getMovieData({ commit, state }, { type, start, count }) {
@@ -15,5 +15,12 @@ export default {
       free: MOVIE_FREE,
     };
     commit(config[type], resp);
-  }
+  },
+
+  async getDetailData({ commit, state }, { subjectId }) {
+    const resp = await getDetail({
+      subjectId
+    });
+    commit(DETAIL, resp);
+  },
 }
