@@ -38,47 +38,6 @@
   font-size: 22px;/*px*/
   color: #aaa;
 }
-
-.rating-stars {
-  display: inline-block;
-  position: relative;
-  width: 105px;/*px*/
-  margin-right: 10px;
-  height: 100%;
-}
-
-.rating-yellow,
-.rating-gray {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding-top: 8px;/*px*/
-  display: box;
-  display: -webkit-box;
-  box-lines: multiple;
-  -webkit-box-lines: multiple;
-  overflow: hidden;
-  box-sizing: border-box;
-
-  > i {
-    display: block;
-    width: 20px;/*px*/
-    height: 20px;/*px*/
-    margin-right: 1px;
-    background-size: 20px;/*px*/
-  }
-}
-
-.gray-star {
-  background-image: url('../../assets/douban-gray-star.png');
-}
-
-.yellow-star {
-  background-image: url('../../assets/douban-yellow-star.png');
-}
-
 .rating-text {
   display: inline-block;
   font-size: 24px;/*px*/
@@ -92,24 +51,7 @@
     <div class="item-img lib-lazyload" :data-lazyload="itemData.cover.url"></div>
     <div class="item-title">{{itemData.title}}</div>
     <div class="item-rating" v-if="itemData.rating && itemData.rating.value">
-      <div class="rating-stars">
-        <div class="rating-gray">
-          <i class="gray-star"></i>
-          <i class="gray-star"></i>
-          <i class="gray-star"></i>
-          <i class="gray-star"></i>
-          <i class="gray-star"></i>
-        </div>
-        <div  class="rating-yellow"
-          v-bind:style="{width: `${itemData.rating.value / itemData.rating.max * 100}%`}"
-        >
-          <i class="yellow-star"></i>
-          <i class="yellow-star"></i>
-          <i class="yellow-star"></i>
-          <i class="yellow-star"></i>
-          <i class="yellow-star"></i>
-        </div>
-      </div>
+      <RatingStars :rating="itemData.rating" />
       <div class="rating-text">{{itemData.rating.value.toFixed(1)}}</div>
     </div>
     <div v-else class="item-rating-none">暂无评分</div>
@@ -117,8 +59,12 @@
 </template>
 
 <script>
+import RatingStars from '../common/rating-stars';
 
 export default {
+  components: {
+    RatingStars,
+  },
   props: ['itemData', 'index']
 }
 </script>

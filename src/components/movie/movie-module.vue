@@ -31,6 +31,7 @@ import { mapState, mapActions } from 'vuex';
 import ModuleTitle from '../common/module-title';
 import Loading from '../common/loading';
 import MovieItem from './movie-item';
+const lazyInstance = Lazyload.instance();
 
 export default {
   props: ['type', 'title', 'dataKey'],
@@ -47,7 +48,6 @@ export default {
   },
 
   mounted() {
-    const lazyInstance = Lazyload.instance();
     lazyInstance.addCallback(this.$el, async () => {
       const { dataKey, type } = this.$props;
       let data;

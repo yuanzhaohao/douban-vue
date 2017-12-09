@@ -1,6 +1,5 @@
 <style lang="less">
 @import '../less/mixins.less';
-@import '../less/reset.less';
 @import '../less/common.less';
 
 .router-fade-enter-active, .router-fade-leave-active {

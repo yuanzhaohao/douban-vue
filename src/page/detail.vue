@@ -10,39 +10,16 @@
   margin-left: 30px;
 }
 
-.detail-title {
-  margin-top: 30px;
-  font-size: 56px;/*px*/
-}
 
-.detail-summary {
-  margin-top: 10px;
 
-  > h5 {
-    color: #aaa;
-    font-size: 30px;/*px*/
-    font-weight: 400;
-  }
-
-  > p {
-    margin-top: 20px;
-    line-height: 44px;
-    font-size: 28px;/*px*/
-    color: #494949;
-    word-wrap: break-word;
-  }
-}
 </style>
 
 <template>
   <div class="page-detail">
     <MovieHeader />
     <div class="container" v-if="detail">
-      <div class="detail-title">{{detail.title}}</div>
-      <div class="detail-summary">
-        <h5>剧情简介</h5>
-        <p>{{detail.summary}}</p>
-      </div>
+      <DetailInfo :detail="detail" />
+      <DetailSummary :detail="detail" />
     </div>
   </div>
 </template>
@@ -52,9 +29,16 @@ import MovieHeader from '../components/movie/header';
 import Lazyload from 'data-lazyload';
 import { mapState, mapActions } from 'vuex';
 
+import DetailInfo from '../components/detail/detail-info';
+import DetailSummary from '../components/detail/detail-summary';
+
+const lazyInstance = Lazyload.instance();
+
 export default {
   components: {
     MovieHeader,
+    DetailInfo,
+    DetailSummary,
   },
 
   mounted: async function() {
@@ -64,6 +48,9 @@ export default {
     });
 
     console.log(this.detail);
+    setTimeout(() => {
+      lazyInstance.addElements(this.$el);
+    }, 0);
   },
 
   computed: {
