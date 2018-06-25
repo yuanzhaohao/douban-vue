@@ -36,7 +36,16 @@ export default {
           console.log(resp);
         }
       });
-    }
+    },
+    handleScroll() {
+      const scrollFn = buffer(() => {
+        if (this.isEnough) window.removeEventListener('scroll', scrollFn, false)
+        if (this.isEnough || this.isLoading) return
+        if (window.scrollY + window.innerHeight >= this.$el.clientHeight - 300) this.loadData()
+      }, 200, this);
+      window.removeEventListener('scroll', scrollFn, false);
+      window.addEventListener('scroll', scrollFn, false);
+    },
   }
 }
 </script>
