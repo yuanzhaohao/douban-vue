@@ -11,11 +11,10 @@
 }
 
 .header-inner {
-  display: -webkit-box;
   display: flex;
   height: 92px;/*px*/
   padding: 0 36px;
-  border-bottom: 1px solid #f3f3f3;/*no*/
+  border-bottom: 1px solid #ccc;/*no*/
   background: #fff;
   justify-content: space-between;
   box-sizing: border-box;
