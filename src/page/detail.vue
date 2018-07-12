@@ -7,6 +7,7 @@
 
 .container {
   width: 690px;
+  padding-top: 30px;
   margin-left: 30px;
 }
 

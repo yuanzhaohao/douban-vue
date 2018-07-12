@@ -2,7 +2,6 @@
 @import '../../less/mixins.less';
 
 .detail-title {
-  margin-top: 30px;
   font-size: 56px;/*px*/
 }
 
