@@ -17,9 +17,12 @@
 <template>
   <div class="page-detail">
     <MovieHeader />
-    <div class="container" v-if="detail">
-      <DetailInfo :detail="detail" />
-      <DetailSummary :detail="detail" />
+    <div class="container">
+      <template v-if="detail">
+        <DetailInfo :detail="detail" />
+        <DetailSummary :detail="detail" />
+      </template>
+      <Loading v-else />
     </div>
   </div>
 </template>
@@ -29,8 +32,9 @@ import MovieHeader from '../components/movie/header';
 import Lazyload from 'data-lazyload';
 import { mapState, mapActions } from 'vuex';
 
-import DetailInfo from '../components/detail/detail-info';
-import DetailSummary from '../components/detail/detail-summary';
+import Loading from '@/components/common/loading';
+import DetailInfo from '@/components/detail/detail-info';
+import DetailSummary from '@/components/detail/detail-summary';
 
 const lazyInstance = Lazyload.instance();
 
@@ -39,6 +43,7 @@ export default {
     MovieHeader,
     DetailInfo,
     DetailSummary,
+    Loading,
   },
 
   mounted: async function() {

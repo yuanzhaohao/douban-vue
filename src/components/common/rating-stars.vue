@@ -51,7 +51,7 @@
       <i class="gray-star"></i>
     </div>
     <div  class="rating-yellow"
-      v-bind:style="{width: `${(rating.value || rating.average) / rating.max * 100}%`}"
+      v-bind:style="{width: `${(rating.average) / rating.max * 100}%`}"
     >
       <i class="yellow-star"></i>
       <i class="yellow-star"></i>

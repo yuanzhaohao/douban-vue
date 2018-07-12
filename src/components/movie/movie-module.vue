@@ -57,8 +57,9 @@ export default {
         type,
       });
       data = this.movie[dataKey];
-      if (data && data.subject_collection_items && data.subject_collection_items.length) {
-        this.listData = data.subject_collection_items;
+      console.log(data);
+      if (data && data.subjects && data.subjects.length) {
+        this.listData = data.subjects;
         setTimeout(() => {
           lazyInstance.addElements(this.$el);
         }, 0);

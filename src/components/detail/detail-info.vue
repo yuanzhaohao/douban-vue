@@ -49,11 +49,12 @@
 
     <div class="detail-info">
       <div class="left">
-        <div class="rating">
+        <div class="rating" v-if="detail.rating && detail.rating.average">
           <RatingStars :rating="detail.rating" />
           <span>{{detail.rating.average}}</span>
           <span>{{detail.ratings_count}}</span>
         </div>
+        <div class="rating" v-else>暂无评分</div>
         <p><span>{{detail.year}}</span><span v-for="genre in detail.genres"> / {{genre}}</span></p>
         <p>原名：{{detail.original_title}}</p>
       </div>
