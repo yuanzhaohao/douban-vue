@@ -7,7 +7,7 @@
 
 .movie-list {
   width: 100%;
-  height: 880px;
+  height: 440*3px;
   .clearfix;
 }
 </style>
@@ -32,6 +32,7 @@ import ModuleTitle from '../common/module-title';
 import Loading from '../common/loading';
 import MovieItem from './movie-item';
 const lazyInstance = Lazyload.instance();
+lazyInstance.diff = 0;
 
 export default {
   props: ['type', 'title', 'dataKey'],
@@ -53,7 +54,7 @@ export default {
       let data;
       await this.getMovieData({
         start: 0,
-        count: 6,
+        count: 9,
         type,
       });
       data = this.movie[dataKey];

@@ -14,7 +14,9 @@
     line-height: 44px;
     font-size: 28px;/*px*/
     color: #494949;
-    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-all;
+    text-align: justify;
   }
 }
 </style>
