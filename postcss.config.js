@@ -4,8 +4,8 @@ module.exports = {
     require('postcss-px2viewport')({
       viewportWidth: 750,
       baseDpr: 2,
-      isDeleteRem: true,
-      isDeleteDpr: true,
+      // isDeleteRem: true,
+      // isDeleteDpr: true,
     })
   ]
 }
