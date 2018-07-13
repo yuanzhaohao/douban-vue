@@ -11,9 +11,7 @@
     "build": "seven build"
   },
   "dependencies": {
-    "clean-css": "^4.1.9",
     "data-lazyload": "0.0.4",
-    "open": "0.0.5",
     "reqwest": "^2.0.5",
     "vue": "^2.5.3",
     "vue-router": "^3.0.1",
