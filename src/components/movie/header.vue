@@ -14,7 +14,7 @@
   display: flex;
   height: 92px;/*px*/
   padding: 0 36px;
-  border-bottom: 1px solid #ccc;/*no*/
+  border-bottom: 1px solid #e7e7e7;/*no*/
   background: #fff;
   justify-content: space-between;
   box-sizing: border-box;
