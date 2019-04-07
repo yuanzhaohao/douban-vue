@@ -8,7 +8,7 @@
 .type-list {
   width: 100%;
   color: #42bd56;
-  border-top: 1px solid #eee;/*no*/
+  border-top: 1px solid #e7e7e7;/*no*/
   .clearfix;
 }
 
@@ -18,13 +18,13 @@
   width: 50%;
   height: 80px;
   padding-left: 30px;
-  border-bottom: 1px solid #eee;/*no*/
+  border-bottom: 1px solid #e7e7e7;/*no*/
   font-size: 28px;/*px*/
   line-height: 80px;
   box-sizing: border-box;
 
   &:nth-of-type(n+1) {
-    border-right: 1px solid #eee;/*no*/
+    border-right: 1px solid #e7e7e7;/*no*/
   }
 
   &:after {

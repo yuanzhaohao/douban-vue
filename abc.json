@@ -1,6 +1,19 @@
 {
+  "type": "vue",
   "staticPath": "./static",
   "assetsRoot": "./dist",
   "cssSourceMap": true,
-  "viewportWidth": 750
+  "hotReplace": true,
+  "mockData": false,
+  "autoOpen": true,
+  "optimizeCommon": {
+    "vendor-lib": [
+      "vue",
+      "vuex",
+      "vue-router",
+      "data-lazyload",
+      "reqwest"
+    ]
+  },
+  "proxyTable": {}
 }

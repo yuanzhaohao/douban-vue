@@ -48,11 +48,11 @@
 
 <template>
   <router-link class="item" :to="`/detail/${itemData.id}`">
-    <div class="item-img lib-lazyload" :data-lazyload="itemData.cover.url"></div>
+    <div class="item-img lib-lazyload" :data-lazyload="itemData.images.large"></div>
     <div class="item-title">{{itemData.title}}</div>
-    <div class="item-rating" v-if="itemData.rating && itemData.rating.value">
+    <div class="item-rating" v-if="itemData.rating && itemData.rating.average">
       <RatingStars :rating="itemData.rating" />
-      <div class="rating-text">{{itemData.rating.value.toFixed(1)}}</div>
+      <div class="rating-text">{{itemData.rating.average.toFixed(1)}}</div>
     </div>
     <div v-else class="item-rating-none">暂无评分</div>
   </router-link>

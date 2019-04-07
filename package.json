@@ -6,12 +6,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "seven dev -p 7777",
+    "start": "seven dev -p 7777 -H localhost",
     "dev": "seven dev -p 7777",
     "build": "seven build"
   },
   "dependencies": {
-    "clean-css": "^4.1.9",
     "data-lazyload": "0.0.4",
     "reqwest": "^2.0.5",
     "vue": "^2.5.3",
@@ -19,8 +18,10 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "autoprefixer": "^8.6.4",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-2": "^6.24.1"
+    "babel-preset-stage-2": "^6.24.1",
+    "postcss-px2viewport": "^0.1.3"
   }
 }

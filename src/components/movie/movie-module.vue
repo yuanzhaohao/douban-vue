@@ -7,8 +7,15 @@
 
 .movie-list {
   width: 100%;
-  height: 880px;
+  height: 440 * 3px;
   .clearfix;
+}
+
+.module-loading {
+  display: flex;
+  height: 440 * 1.5px;
+  justify-content: center;
+  align-items: center;
 }
 </style>
 
@@ -19,7 +26,9 @@
       <template v-if="listData && listData.length">
         <MovieItem v-for="(itemData, index) in listData" :itemData="itemData" :key="index" />
       </template>
-      <Loading v-else />
+      <div class="module-loading" v-else>
+        <Loading />
+      </div>
     </div>
   </div>
 </template>
@@ -32,6 +41,7 @@ import ModuleTitle from '../common/module-title';
 import Loading from '../common/loading';
 import MovieItem from './movie-item';
 const lazyInstance = Lazyload.instance();
+lazyInstance.diff = 0;
 
 export default {
   props: ['type', 'title', 'dataKey'],
@@ -50,15 +60,16 @@ export default {
   mounted() {
     lazyInstance.addCallback(this.$el, async () => {
       const { dataKey, type } = this.$props;
-      let data;
-      await this.getMovieData({
-        start: 0,
-        count: 6,
-        type,
-      });
-      data = this.movie[dataKey];
-      if (data && data.subject_collection_items && data.subject_collection_items.length) {
-        this.listData = data.subject_collection_items;
+      if (!this.movie[dataKey]) {
+        await this.getMovieData({
+          start: 0,
+          count: 9,
+          type,
+        });
+      }
+      let data = this.movie[dataKey];
+      if (data && data.subjects && data.subjects.length) {
+        this.listData = data.subjects;
         setTimeout(() => {
           lazyInstance.addElements(this.$el);
         }, 0);

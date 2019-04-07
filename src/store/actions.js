@@ -18,6 +18,8 @@ export default {
   },
 
   async getDetailData({ commit, state }, { subjectId }) {
+    commit(DETAIL, null);
+
     const resp = await getDetail({
       subjectId
     });

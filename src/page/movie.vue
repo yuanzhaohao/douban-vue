@@ -40,11 +40,11 @@ export default {
           dataKey: 'showingData',
         }, {
           type: 'free',
-          title: '免费在线观影',
+          title: '豆瓣排行榜',
           dataKey: 'freeData',
         }, {
           type: 'latest',
-          title: '新片速递',
+          title: '即将上映',
           dataKey: 'latestData',
         }
       ]
