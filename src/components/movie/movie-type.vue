@@ -62,7 +62,7 @@
       <div class="type-item">欧美</div>
       <div class="type-item">韩国</div>
       <div class="type-item">日本</div>
-  </div>
+    </div>
   </div>
 </template>
 
